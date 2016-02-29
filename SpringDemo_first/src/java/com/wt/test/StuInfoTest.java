@@ -10,9 +10,7 @@ public class StuInfoTest {
         
         ApplicationContext context = new ClassPathXmlApplicationContext("conf/beans.xml");
                 
-        context.getBean("stu");
-        
-        StuInfo stu = new StuInfo();
+        StuInfo stu = (StuInfo) context.getBean("stu");
         
         String s = stu.print("TT");
     
