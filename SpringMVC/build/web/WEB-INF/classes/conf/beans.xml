@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+">
+    <bean name="TT" class="com.wt.entity.StuInfo">
+        <property name="stu_Name" value="hohoTT" />
+        <property name="age" value="21" />
+        <constructor-arg value="aa"/>
+        <constructor-arg value="11"/>
+    </bean>
+    
+    <bean name="xin" class="com.wt.entity.StuInfo">
+        <property name="stu_Name" value="xin" />
+        <property name="age" value="22" />
+        <constructor-arg value="aa"/>
+        <constructor-arg value="11"/>
+    </bean>
+    
+    <bean name="colorInkBox" class="com.wt.impl.ColorInkBox">
+        
+    </bean>
+    
+    <bean name="a4Paper" class="com.wt.impl.A4Paper">
+        
+    </bean>
+    
+    <bean name="p" class="com.wt.entity.Printer">
+        <property name="inkBox" ref="colorInkBox"/>
+        <property name="iPaper" ref="a4Paper"/>
+    </bean>
+</beans>
