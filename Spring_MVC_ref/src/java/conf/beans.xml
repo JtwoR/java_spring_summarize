@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+">
+    
+    <bean name="colorInkBox" class="com.wt.impl.ColorInkBox"></bean>
+    <bean name="greyInkBox" class="com.wt.impl.GreyInkBox"></bean>
+    
+    <bean name="a4Paper" class="com.wt.impl.TestPaper">
+        <property name="charPerLine" value="10"/>
+        <property name="LinePerPage" value="5"/>
+    </bean>
+    
+    <bean name="b5Paper" class="com.wt.impl.TestPaper">
+        <property name="charPerLine" value="20"/>
+        <property name="LinePerPage" value="8"/>
+    </bean>
+    
+    <bean name="printer" class="com.wt.entity.Printer">
+        <property name="inkBox" ref="colorInkBox"/>
+        <property name="paper" ref="b5Paper"/>
+        
+    </bean>
+    
+</beans>
