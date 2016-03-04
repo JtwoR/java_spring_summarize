@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+">
+    <bean id="dateBean" class="java.util.Date"></bean>
+    <bean id="hello" class="com.entity.HelloText" autowire="constructor">
+        <property name="helloWords" value="hello!!!!!happy!"/>
+        
+    </bean>
+    
+    <bean name="boyImp" class="com.impl.BoyImp">
+        <property name="sex" value="b"></property>
+        <constructor-arg value="hohoTT"/>
+        <constructor-arg value="21"/>
+        <constructor-arg value="b"/>
+    </bean>
+   
+    <bean name="activityDemo" class="com.text.ActivityDemo">
+        <property name="boy" ref="boyImp"/>
+    </bean>
+    
+</beans>
