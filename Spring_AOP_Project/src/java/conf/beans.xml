@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+">
+    
+    <bean name="chen" class="com.wt.one.impl.OneTeacherChen"></bean>
+    
+    <!-- 以下为事前通知 -->
+    <bean name="beforeAdvice" class="com.wt.advice.TeacherAdvice"></bean>
+    
+    <bean name="teacherProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <list>
+                <value>com.wt.one.OneTeach</value>
+            </list>
+        </property>
+        
+        <property name="target" ref="chen"></property>
+        
+        <property name="interceptorNames">
+            <list>
+                <value>beforeAdvice</value>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>
