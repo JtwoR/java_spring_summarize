@@ -1,10 +1,10 @@
-package static_procy;
+package static_proxy;
 
 import com.wt.ITeach;
 import com.wt.imp.TeacherCheng;
 import com.wt.imp.TeacherTT;
 
-public class Static_procy {
+public class Static_proxy {
     
     public static void main(String[] args) {
         ITeach tt = new TeacherTT();
