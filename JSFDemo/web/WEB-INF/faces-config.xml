@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <managed-bean>
+        <managed-bean-name>user</managed-bean-name>
+        <managed-bean-class>com.wt.mamagers.UserManagers</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>userName</property-name>
+            <property-class>java.lang.String</property-class>
+        </managed-property>
+    </managed-bean>
+    
+    <!-- 配置导航规则,因为受管bean中有一个return"main"，所以需要导航规则！ -->
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>main</from-action>
+            <to-view-id>/main.jsp</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-action>error</from-action>
+            <to-view-id>/error.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>
