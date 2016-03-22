@@ -33,5 +33,12 @@
         <property name="mappingLocations" value="classpath:com/wt/entity/*.hbm.xml" />
     </bean>
         
+    <bean name="userInfoDaoImpl" class="com.wt.dao.impl.UserInfoDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <bean name="userInfoBizImpl" class="com.wt.biz.impl.UserInfoBizImpl">
+        <property name="userInfoDao" ref="userInfoDaoImpl"></property>
+    </bean>
 
 </beans>
