@@ -108,12 +108,16 @@ public class StuInfoJUnitTest {
     @Test
     public void testDelete(){
         // 选择第三个进行删除操作
-        StuInfo stuInfo = (StuInfo) session.get(StuInfo.class, 3);
+        try {
+            StuInfo stuInfo = (StuInfo) session.get(StuInfo.class, 3);
         
-        session.delete(stuInfo);
-        
-        // 调用 session 中的save方法，执行删除操作
-        session.save(stuInfo);
+            session.delete(stuInfo);
+
+            // 调用 session 中的save方法，执行删除操作
+            session.save(stuInfo);
+        } catch (Exception e) {
+            System.out.println("要删除的stu不存在" + e);
+        }
     }
     
     
