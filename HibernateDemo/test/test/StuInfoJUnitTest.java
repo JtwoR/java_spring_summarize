@@ -6,7 +6,11 @@
 package test;
 
 import com.wt.entity.StuInfo;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Blob;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -145,6 +149,43 @@ public class StuInfoJUnitTest {
         } catch (Exception e) {
             System.out.println("要删除的stu不存在" + e);
         }
+    }
+    
+    // 以下的测试为将之前提交插入的图片进行另行的保存操作
+    @Test
+    public void testPhotoGet(){
+        StuInfo stuInfo = (StuInfo) session.get(StuInfo.class, 1);
+        
+        Blob photo = stuInfo.getS_photo();
+        
+        try {
+            // 获取Blob的输入流
+            InputStream inputStream = photo.getBinaryStream();
+            
+            // 创建缓冲区，inputStream对象的available()方法获取流中可读取的数据大小
+            byte[] buf = new byte[inputStream.available()];
+            inputStream.read(buf);
+            
+            // 创建文件
+            File file = new File("D:\\tset_img\\testImgOne.jpg");
+            if(!file.exists()){
+                file.createNewFile();
+            }
+            
+            // 创建输出流
+            OutputStream fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(buf);
+            
+            // 关闭流
+            fileOutputStream.close();
+            inputStream.close();
+            
+        } catch (Exception e) {
+        }
+        
+        
+        
+        
     }
     
 }
