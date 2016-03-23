@@ -100,8 +100,8 @@ public class StuInfoJUnitTest {
     public void testInsert(){
         
         try {
-            
-            FileInputStream in = new FileInputStream("D:\\testImg.jpg");
+            // 修改之前图片的绝对路径为相对路径
+            FileInputStream in = new FileInputStream("web\\img\\testImg.jpg");
             Blob photo = Hibernate.getLobCreator(session).createBlob(in, in.available());
             StuInfo stuInfo = new StuInfo();
 
