@@ -32,12 +32,12 @@ public class test {
         Transaction transaction = session.beginTransaction();
         
         // save
-        StuInfo stu = new StuInfo();
-        stu.setS_name("test");
-        stu.setS_sex("boy");
-        
-        // 调用 session 中的方法
-        session.save(stu);
+//        StuInfo stu = new StuInfo();
+//        stu.setS_name("test");
+//        stu.setS_sex("boy");
+//        
+//        // 调用 session 中的方法
+//        session.save(stu);
         
         // 提交事务
         transaction.commit();
