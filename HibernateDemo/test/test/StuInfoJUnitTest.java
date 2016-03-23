@@ -6,8 +6,11 @@
 package test;
 
 import com.wt.entity.StuInfo;
+import java.io.FileInputStream;
+import java.sql.Blob;
 import java.util.List;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -83,12 +86,23 @@ public class StuInfoJUnitTest {
     @Test
     public void testInsert(){
         
-        StuInfo stuInfo = new StuInfo();
-        stuInfo.setS_name("testOne");
-        stuInfo.setS_sex("girl");
-        
-        // 调用 session 中的save方法，保存创建的学生，执行插入操作
-        session.save(stuInfo);
+        try {
+            
+            FileInputStream in = new FileInputStream("D:\\testImg.jpg");
+            Blob photo = Hibernate.getLobCreator(session).createBlob(in, in.available());
+            StuInfo stuInfo = new StuInfo();
+
+            stuInfo.setS_name("test");
+            stuInfo.setS_sex("testGirl");
+            
+            stuInfo.setS_photo(photo);
+            
+            // 调用 session 中的save方法，保存创建的学生，执行插入操作
+            session.save(stuInfo);
+            
+        } catch (Exception e) {
+            System.out.println("想要获取的图片不存在");
+        }
         
     }
     

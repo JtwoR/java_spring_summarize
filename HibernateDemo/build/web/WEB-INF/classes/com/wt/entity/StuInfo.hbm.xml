@@ -10,5 +10,7 @@
         
         <property name="s_sex" column="s_sex" type="string"/>
         
+        <property name="s_photo" column="s_photo" type="java.sql.Blob" />
+        
     </class>
 </hibernate-mapping>
