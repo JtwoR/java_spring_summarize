@@ -54,6 +54,19 @@ public class StuInfoJUnitTest {
         transaction = session.beginTransaction();
     }
     
+    // 最后的销毁处理部分
+    @After
+    public void destroy() {
+        // 提交事务
+        transaction.commit();
+        
+        // 关闭 session 
+        session.close();
+        
+        // 关闭sessionFactory
+        sessionFactory.close();
+    }
+    
     // 以下为测试查询的方法
     @Test
     public void testQuery(){
@@ -134,18 +147,4 @@ public class StuInfoJUnitTest {
         }
     }
     
-    
-    // 最后的销毁处理部分
-    @After
-    public void destroy() {
-        // 提交事务
-        transaction.commit();
-        
-        // 关闭 session 
-        session.close();
-        
-        // 关闭sessionFactory
-        sessionFactory.close();
-    }
-
 }
