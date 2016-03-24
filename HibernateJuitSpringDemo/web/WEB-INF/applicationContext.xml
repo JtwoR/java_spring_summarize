@@ -32,6 +32,26 @@
         </property>
         <property name="mappingLocations" value="classpath:com/wt/entity/*.hbm.xml" />
     </bean>
+    
+    <!--添加事务 tt-->
+    <bean id="transationManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+
+    <!--配置事务传播特性 tt-->
+    <tx:advice id="txAdvice" transaction-manager="transationManager">
+        <tx:attributes>
+            <tx:method name="do*"/>
+            <tx:method name="*" read-only="true" propagation="SUPPORTS"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="cut" expression="execution(* com.niit.biz.impl.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="cut"/>
+    </aop:config>
+
         
     <bean name="userInfoDaoImpl" class="com.wt.dao.impl.UserInfoDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>

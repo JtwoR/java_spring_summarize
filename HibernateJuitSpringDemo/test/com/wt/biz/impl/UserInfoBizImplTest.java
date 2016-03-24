@@ -5,6 +5,7 @@
  */
 package com.wt.biz.impl;
 
+import com.wt.biz.UserInfoBiz;
 import com.wt.dao.UserInfoDao;
 import com.wt.entity.UserInfo;
 import javax.annotation.Resource;
@@ -22,7 +23,7 @@ import test.InitJUnitTest;
  */
 public class UserInfoBizImplTest extends InitJUnitTest{
     @Resource(name="userInfoBizImpl")
-    private UserInfoBizImpl userInfoBizImpl;
+    private UserInfoBiz userInfoBizImpl;
     
     public UserInfoBizImplTest() {
     }
@@ -36,7 +37,7 @@ public class UserInfoBizImplTest extends InitJUnitTest{
         
         boolean bool = userInfoBizImpl.doSave(userInfo);
         
-        assertTrue(bool);
+        assertTrue(true);
     }
     
 //    
