@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.entity">
+    
+    <class name="Produces" table="pro_info">
+        
+        <id name="proId" column="pro_id" type="integer">
+            <generator class="native"/>
+        </id>
+        
+        <property name="proName" column="pro_name" type="string" />
+        
+        <property name="proPrice" column="pro_price" type="double" />
+        
+    </class>
+    
+</hibernate-mapping>
