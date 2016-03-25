@@ -44,5 +44,6 @@
             <2> 删除redirect.jsp
             <3> 删除dispatcher-servlet.xml
             <4> 删除jsp文件夹
+            <5> 删除hibernate.cfg.xml
             
         3. 完成基本的项目初始化配置操作
