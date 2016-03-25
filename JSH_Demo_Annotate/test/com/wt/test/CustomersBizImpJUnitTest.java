@@ -19,11 +19,11 @@ public class CustomersBizImpJUnitTest extends SessionFactoryJUnitTest{
     public void testDoSave(){
         
         Produces produces = new Produces();
-        produces.setProName("test_pro66666611");
+        produces.setProName("test_pro6666661122");
         produces.setProPrice(1111111.666666666);
         
         Customers customers = new Customers();
-        customers.setCustomerName("test_cus6666611");
+        customers.setCustomerName("test_cus666661122");
         customers.setCustomerPassword("2222222222222.666666");
         
         customersBiz.doSave(customers, produces);
