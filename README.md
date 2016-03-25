@@ -21,3 +21,24 @@
   如果ModelAndView返回的视图只是逻辑名，则需要借助Spring提供的视图解析器（ViewResoler）在Web应用中查找View对象，从而将响应结果渲染给客户。
   
   DispatcherServlet将View对象渲染出的结果返回个客户。
+  
+  ------------------------------------------------------------------------------------------------------------------------------------
+  
+  以下为整合spring、jsf、hibernate三个框架的步骤：
+      1. 首先介绍用NetBeans功能整合的步骤，创建项目的时候添加三个框架，项目创建初始化结束。
+      2. 做几个删除的操作：
+            <1> 删除web.xml文件下的
+                ①<servlet>
+                     <servlet-name>dispatcher</servlet-name>
+                     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+                     <load-on-startup>2</load-on-startup>
+                 </servlet>
+                ②<servlet-mapping>
+                     <servlet-name>dispatcher</servlet-name>
+                     <url-pattern>*.htm</url-pattern>
+                 </servlet-mapping>
+                ③<welcome-file>redirect.jsp</welcome-file>
+            <2> 删除redirect.jsp
+            <3> 删除dispatcher-servlet.xml
+            <4> 删除jsp文件夹
+        3. 完成基本的项目初始化配置操作
