@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <application>
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+    </application>
+    
+    <managed-bean>
+        <managed-bean-name>stu</managed-bean-name>
+        <managed-bean-class>com.wt.manager.StuManager</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>stuInfoBiz</property-name>
+            <property-class>com.wt.biz.StuInfoBiz</property-class>
+            <value>#{StuInfoBizImplSpringXml}</value>
+        </managed-property>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>user</managed-bean-name>
+        <managed-bean-class>com.wt.manager.UserManager</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>userInfoBiz</property-name>
+            <property-class>com.wt.biz.UserInfoBiz</property-class>
+            <value>#{userInfoBizImplSpringXml}</value>
+        </managed-property>
+    </managed-bean>
+    
+    <!-- 配置导航规则 -->
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>success</from-action>
+            <to-view-id>/success.jsp</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-action>error</from-action>
+            <to-view-id>/error.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+</faces-config>
