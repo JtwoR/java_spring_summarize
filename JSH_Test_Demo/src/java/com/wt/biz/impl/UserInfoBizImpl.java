@@ -26,9 +26,9 @@ public class UserInfoBizImpl implements UserInfoBiz{
     }
 
     @Override
-    public List doQuery(String userName) {
+    public List<UserInfo> doQuery(String userName) {
         boolean flag = false;
-        UserInfo userInfo = null;
+//        UserInfo userInfo = null;
         List userInfos = null;
         try {
             

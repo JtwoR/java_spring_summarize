@@ -30,11 +30,11 @@ public class UserInfoDaoImpl extends HibernateDaoSupport implements UserInfoDao{
     }
 
     @Override
-    public List query(String userName) {
+    public List<UserInfo> query(String userName) {
         
-        UserInfo userInfo = (UserInfo) super.getHibernateTemplate().find("from UserInfo where name = '" + userName + "'");
+//        UserInfo userInfo = (UserInfo) super.getHibernateTemplate().find("from UserInfo where name = '" + userName + "'");
     
-        List userInfos = super.getHibernateTemplate().find("from UserInfo where name = '" + userName + "'");
+        List userInfos = super.getHibernateTemplate().find("from UserInfo where user_name = '" + userName + "'");
         
         return userInfos;
         

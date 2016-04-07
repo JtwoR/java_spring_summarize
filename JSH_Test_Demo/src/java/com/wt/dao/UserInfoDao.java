@@ -7,7 +7,7 @@ public interface UserInfoDao {
     
     public void save(UserInfo userInfo);
     
-    public List query(String userName);
+    public List<UserInfo> query(String userName);
     
     public void delete(UserInfo userInfo);
     

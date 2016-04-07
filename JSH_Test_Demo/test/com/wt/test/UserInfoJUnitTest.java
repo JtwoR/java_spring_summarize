@@ -35,9 +35,14 @@ public class UserInfoJUnitTest extends InitJUnitTest{
         
         userInfoBiz.doQuery(testName);
         
-        List userInfos = userInfoBiz.doQuery(testName);
+        List<UserInfo> userInfos = userInfoBiz.doQuery(testName);
         
-        System.out.println(userInfos);
+        for (UserInfo userInfo : userInfos) {
+            System.out.println("---------------------------------------");
+            System.out.println("user_id --- " + userInfo.getUserId());
+            System.out.println("user_name --- " + userInfo.getUserName());
+            System.out.println("user_password --- " + userInfo.getUserPassword());
+        }
 
     }
     
